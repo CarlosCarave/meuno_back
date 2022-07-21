@@ -8,6 +8,9 @@ var app = require('../app');
 var debug = require('debug')('back-meuno:server');
 var http = require('http');
 
+//Configuración de la base de datos.
+require('../config/db');
+
 /**
  * Get port from environment and store in Express.
  */

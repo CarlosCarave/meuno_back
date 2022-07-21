@@ -1,7 +1,20 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.end('Peticion GET eventos');
+const Evento = require('../../models/evento.model');
+
+/*router.get('/', (req, res) => {
+    Evento.getAll()
+        .then(result => res.json(result))
+        .catch(err => res.json({ error: err.message }));
+}); */
+
+router.get('/', async (req, res) => {
+    try {
+        const result = await Evento.getAll()
+        res.json(result);
+    } catch (err) {
+        res.json({ error: err.message });
+    }
 });
 
 router.post('/', (req, res) => {
