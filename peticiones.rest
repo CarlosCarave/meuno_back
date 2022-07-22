@@ -5,5 +5,9 @@ POST http://localhost:3000/api/eventos
 Content-Type: application/json
 
 {
-    
+    "titulo": "Concierto de RUSSIAN CIRCLES",
+    "fecha": "2023/04/02 20:00:00",
+    "descripcion": "Después de haber tenido que cancelar el evento por culpa de la pandemia, tras dos años, este grupo de post-metal procedente de Chicago ha anunciado su puesta en escena en la sala Custom de Sevilla. No pierdas la oportunidad de conocerlos.",
+    "imagen": "https://www.binaural.es/wp-content/uploads/2019/10/russian.jpg",
+    "lugar": "Sala Custom, Sevilla"
 }

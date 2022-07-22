@@ -18,7 +18,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    res.end('Peticion POST eventos');
+    console.log(req.body);
+    Evento.create(req.body)
+        .then(result => res.json(result))
+        .catch(err => res.json({ error: err.message }));
 });
 
 router.put('/', (req, res) => {
