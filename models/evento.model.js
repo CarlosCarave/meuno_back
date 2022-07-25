@@ -1,4 +1,4 @@
-const { executeQuery } = require('../helpers/utilidades');
+const { executeQuery, executeQueryOne } = require('../helpers/utilidades');
 
 const getAll = () => {
 
@@ -24,6 +24,17 @@ const create = ({ titulo, fecha, descripcion, imagen, lugar }) => {
     });
 }
 
+const getById = (eventoId) => {
+    return executeQueryOne('select * from clientes where id=?',
+        [eventoId]);
+}
+
+const deleteById = (eventoId) => {
+    return executeQuery('delete from eventos where id=?', [eventoId]);
+};
+
+
+
 module.exports = {
-    getAll, create, executeQuery
+    getAll, create, executeQuery, getById, deleteById
 }

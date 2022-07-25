@@ -23,12 +23,19 @@ router.post('/', (req, res) => {
         .catch(err => res.json({ error: err.message }));
 });
 
-router.put('/', (req, res) => {
-    res.end('Peticion PUT eventos');
+router.put('/:eventoId', (req, res) => {
+    const { eventoId } = req.params;
+    Evento.update(eventoId, req.body)
+        .then(result => res.json(result))
+        .catch(err => res.json(err.message));
 });
 
-router.delete('/', (req, res) => {
-    res.end('Peticion DELETE eventos');
+router.delete('/:eventoId', (req, res) => {
+    Evento.deleteById(req.params.eventoId)
+        .then(result => {
+            res.json({ success: 'Se ha borrado el evento' });
+        })
+        .catch(err => res.json({ error: err.message }));
 });
 
 

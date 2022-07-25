@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
         .catch(err => res.json({ error: err.message }));
 });
 
-router.post('/', (req, res) => {
-    Usuario.create(req.body)
+router.post('/', async (req, res) => {
+    const result = await Usuario.create(req.body)
         .then(result => {
             res.json(result);
         })
@@ -20,8 +20,12 @@ router.put('/', (req, res) => {
     res.end('Peticion PUT usuarios');
 });
 
-router.delete('/', (req, res) => {
-    res.end('Peticion DELETE usuarios');
+router.delete('/:usuarioId', (req, res) => {
+    Usuario.deleteById(req.params.usuarioId)
+        .then(result => {
+            res.json({ success: 'Se ha borrado el usuario' });
+        })
+        .catch(err => res.json({ error: err.message }));
 });
 
 
