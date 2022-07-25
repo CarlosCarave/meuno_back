@@ -11,3 +11,16 @@ Content-Type: application/json
     "imagen": "https://www.binaural.es/wp-content/uploads/2019/10/russian.jpg",
     "lugar": "Sala Custom, Sevilla"
 }
+
+### 
+GET http://localhost:3000/api/usuarios 
+
+###
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "username": "eldepereza",
+    "email": "eldepereza@gmail.com",
+    "password": "12341234"
+}

@@ -5,7 +5,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const indexRouter = require('./routes/index');
-const usuariosRouter = require('./routes/usuarios');
+const usuariosRouter = require('./routes/api/usuarios');
 const apiRouter = require('./routes/api');
 
 

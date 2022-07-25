@@ -8,6 +8,9 @@ var app = require('../app');
 var debug = require('debug')('back-meuno:server');
 var http = require('http');
 
+//Config de .env
+require('dotenv').config();
+
 //Configuración de la base de datos.
 require('../config/db');
 

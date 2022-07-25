@@ -1,3 +1,5 @@
+const { executeQuery } = require('../helpers/utilidades');
+
 const getAll = () => {
 
     const prom = new Promise((resolve, reject) => {
@@ -23,5 +25,5 @@ const create = ({ titulo, fecha, descripcion, imagen, lugar }) => {
 }
 
 module.exports = {
-    getAll, create
+    getAll, create, executeQuery
 }

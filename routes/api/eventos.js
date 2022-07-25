@@ -14,11 +14,10 @@ router.get('/', async (req, res) => {
         res.json(result);
     } catch (err) {
         res.json({ error: err.message });
-    }
+    } 
 });
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     Evento.create(req.body)
         .then(result => res.json(result))
         .catch(err => res.json({ error: err.message }));
