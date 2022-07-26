@@ -13,9 +13,13 @@ const getById = (usuarioId) => {
 }
 
 
+const getByEmail = (email) => {
+    return executeQueryOne('select * from usuarios where email = ?', [email]);
+}
+
 
 
 
 module.exports = {
-    getAll, create, getById
+    getAll, create, getById, getByEmail
 };

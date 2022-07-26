@@ -33,8 +33,14 @@ const deleteById = (eventoId) => {
     return executeQuery('delete from eventos where id=?', [eventoId]);
 };
 
+const update = (eventoId, { titulo, descripcion, imagen, fecha, lugar }) => {
+    return executeQuery('update eventos set titulo = ?, descripcion = ?, imagen = ?, fecha = ?, lugar = ?',
+        [titulo, descripcion, imagen, fecha, lugar]
+    );
+}
+
 
 
 module.exports = {
-    getAll, create, executeQuery, getById, deleteById
+    getAll, create, executeQuery, getById, deleteById, update
 }

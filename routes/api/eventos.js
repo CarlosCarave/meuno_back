@@ -38,5 +38,13 @@ router.delete('/:eventoId', (req, res) => {
         .catch(err => res.json({ error: err.message }));
 });
 
+router.get('/:eventoId', (req,res) => {
+    Evento.getById(req.params.eventoId)
+    .then(result => {
+        res.json({ success: 'Se ha obtenido un evento'});
+    })
+    .catch(err => res.json({ error: err.message}) )
+})
+
 
 module.exports = router;
