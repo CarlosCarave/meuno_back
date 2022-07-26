@@ -34,8 +34,8 @@ const deleteById = (eventoId) => {
 };
 
 const update = (eventoId, { titulo, descripcion, imagen, fecha, lugar }) => {
-    return executeQuery('update eventos set titulo = ?, descripcion = ?, imagen = ?, fecha = ?, lugar = ?',
-        [titulo, descripcion, imagen, fecha, lugar]
+    return executeQuery('update eventos set titulo = ?, descripcion = ?, imagen = ?, fecha = ?, lugar = ? where id = ?',
+        [titulo, descripcion, imagen, fecha, lugar, eventoId]
     );
 }
 

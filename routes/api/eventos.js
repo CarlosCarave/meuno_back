@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         res.json(result);
     } catch (err) {
         res.json({ error: err.message });
-    } 
+    }
 });
 
 router.post('/', (req, res) => {
@@ -38,12 +38,12 @@ router.delete('/:eventoId', (req, res) => {
         .catch(err => res.json({ error: err.message }));
 });
 
-router.get('/:eventoId', (req,res) => {
+router.get('/:eventoId', (req, res) => {
     Evento.getById(req.params.eventoId)
-    .then(result => {
-        res.json({ success: 'Se ha obtenido un evento'});
-    })
-    .catch(err => res.json({ error: err.message}) )
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => res.json({ error: err.message }))
 })
 
 
