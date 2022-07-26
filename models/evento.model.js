@@ -25,7 +25,7 @@ const create = ({ titulo, fecha, descripcion, imagen, lugar }) => {
 }
 
 const getById = (eventoId) => {
-    return executeQueryOne('select * from clientes where id=?',
+    return executeQueryOne('select * from eventos where id=?',
         [eventoId]);
 }
 

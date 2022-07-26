@@ -29,4 +29,4 @@ Content-Type: application/json
 DELETE http://localhost:3000/api/eventos/1
 
 ###
-PUT 
+PUT http://localhost:3000/api/eventos/4
