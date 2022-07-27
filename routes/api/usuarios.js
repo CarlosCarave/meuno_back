@@ -6,6 +6,10 @@ const bcrypt = require('bcrypt');
 
 const { createToken } = require('../../helpers/utilidades');
 
+const { checkToken } = require('../../helpers/middlewares');
+
+const { getEventosUser } = require('../../models/usuario.model')
+
 router.get('/', (req, res) => {
     Usuario.getAll()
         .then(result => res.json(result))
@@ -76,5 +80,15 @@ router.post('/login', async (req, res) => {
 
 
 });
+
+router.get('/usuario/data', checkToken, (req, res) => {
+    res.json(req.user);
+});
+
+router.get('/eventos/usuario', checkToken, (req, res) => {
+    Usuario.getEventosUser(req.user)
+        .then(result => res.json(result))
+        .catch(err => res.json({ error: err.message }));
+})
 
 module.exports = router;

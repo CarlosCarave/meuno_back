@@ -18,9 +18,13 @@ const getByUsername = (username) => {
     return executeQueryOne('select * from usuarios where username = ?', [username]);
 }
 
+const getEventosUser = (user) => {
+    
+    return executeQuery('select eventos.* from usuarios_has_eventos join usuarios on usuarios.id = usuarios_has_eventos.usuarios_id join eventos on eventos.id = usuarios_has_eventos.eventos_id where usuarios.id = ?', [user[0].id])
+}
 
 
 
 module.exports = {
-    getAll, create, getById, getByUsername
+    getAll, create, getById, getByUsername, getEventosUser
 };
