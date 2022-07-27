@@ -13,7 +13,7 @@ const checkToken = async (req, res, next) => {
     const token = req.headers['authorization'];
 
     let obj;
-    
+
     try {
         obj = jwt.verify(token, 'en un lugar de la mancha');
     } catch (err) {

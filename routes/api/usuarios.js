@@ -12,13 +12,13 @@ router.get('/', (req, res) => {
         .catch(err => res.json({ error: err.message }));
 });
 
-router.post('/', async (req, res) => {
+/* router.post('/', async (req, res) => {
     const result = await Usuario.create(req.body)
         .then(result => {
             res.json(result);
         })
         .catch(err => res.json({ error: err.message }));
-});
+}); */
 
 router.put('/:usuarioId', (req, res) => {
     const { usuarioId } = req.params;
@@ -38,24 +38,7 @@ router.delete('/:usuarioId', (req, res) => {
 //REGISTRO USUARIO
 
 router.post('/registro',
-    body('username')
-        .exists()
-        .withMessage('El campo username es requerido')
-        .isLength({ min: 3, max: 15 })
-        .withMessage('El campo username debe tener una longitud entre 3 y 15 caracteres'),
-    body('email')
-        .isEmail()
-        .withMessage('El email debe tener un formato correcto'),
-    body('password')
-        .exists()
-        .withMessage('Debes introducir la password')
-
-    , async (req, res) => {
-
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.json(errors.array());
-        }
+    async (req, res) => {
 
         try {
 
@@ -63,6 +46,7 @@ router.post('/registro',
             req.body.password = bcrypt.hashSync(req.body.password, 12);
 
             const result = await Usuario.create(req.body);
+            console.log(result);
             res.json(result);
         } catch (err) {
             res.json({ error: err.message })
