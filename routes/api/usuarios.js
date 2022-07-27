@@ -4,7 +4,7 @@ const Usuario = require('../../models/usuario.model');
 
 const bcrypt = require('bcrypt');
 
-const { body, validationResult } = require('express-validator')
+const { createToken } = require('../../helpers/utilidades');
 
 router.get('/', (req, res) => {
     Usuario.getAll()
@@ -56,17 +56,18 @@ router.post('/registro',
 // LOGIN USUARIO
 
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    const user = await Usuario.getByEmail(email);
+    const user = await Usuario.getByUsername(username);
+    console.log(user)
     if (!user) {
-        return res.json({ error: 'Email y/o constraseña incorrectos' });
+        return res.json({ error: 'usuario y/o constraseña incorrectos' });
     }
 
     const iguales = bcrypt.compareSync(password, user.password);
 
     if (!iguales) {
-        return res.json({ error: 'Email y/o contraseña incorrectos2' });
+        return res.json({ error: 'Usuario y/o contraseña incorrectos2' });
     }
     res.json({
         success: 'Login correcto',
