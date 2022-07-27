@@ -47,4 +47,4 @@ const checkRole = (role) => {
     }
 }
 
-module.exports = { checkToken, checkAdmin, checkRole };
+module.exports = { checkToken, checkAdmin, checkRole, };

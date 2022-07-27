@@ -20,18 +20,9 @@ POST http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "eldepereza3",
-    "email": "eldepereza3@gmail.com",
-    "password": "123456"
-}
-
-###
-POST http://localhost:3000/api/usuarios/login
-Content-Type: application/json
-
-{
-    "email": "jony3@hotmail.com",
-    "password": "12345"
+    "username": "eldeperezaa",
+    "email": "eldeperezaa@gmail.com",
+    "password": "12341234"
 }
 
 ###
